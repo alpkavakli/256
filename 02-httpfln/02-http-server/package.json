@@ -1,0 +1,6 @@
+{
+  "type" : "module",
+  "dependencies": {
+    "ua-parser-js": "^2.0.9"
+  }
+}

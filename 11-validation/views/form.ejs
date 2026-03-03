@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input : Web Form</title>
+    <style>
+        input { width: 100px; }
+        div { text-align: center;}
+        span { font-weight: bold; color: blue}
+        em { color: green; font-weight: bold;}
+        .error { background: #fdd}
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Arithmetic Operations</h2>
+        <form action="/" method="post">
+            <input type="text" name="n1" value="%= data.n1 ?? `` %>"
+            class="<%= errors.n1 ? "error" : "" %>">
+            
+             <select name="op" >
+                <option value="add"
+                <%= data.op == "add" ? "selected" : "" %>+</option>
+                <option value="sub
+                <%= data.op == "sub" ? "selected" : "" %></option>">-</option>  
+                <option value="mul
+                <%= data.op == "mul" ? "selected" : "" %></option>">*</option>
+                <option value="div
+                <%= data.op == "div" ? "selected" : "" %></option>">/</option>
+             </select>
+            <input type="text" name="n2" value="%= data.n2 ?? `` %>">  
+            <br><br>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <% if ( typeof result !== "undefined" ) { %>
+        <div>
+            <h3>Result: </h3>
+            <p>
+                <%= data.n1 %>
+                <span><%= data.op %></span>
+                <%= data.n2 %>
+                 =
+                <em><%= result %></em>
+            </p>
+        </div>
+    <% } %>
+
+        <%  if ( Object.keys(errors).length > 0 ){ // we use it to check if the object has a value that exists
+        //cuz Object.keys returns an array 
+        %>
+        <div>
+            <h3 style="color:red">Errors</h3></div>
+            <p>
+                <%=    
+                    Object.values(errors).map( e => `<p>${e.msg}</p>`)
+                                        .join("")
+                %>
+            </p>
+      <%  }%>
+</body>
+</html>
