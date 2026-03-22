@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .error { color: red ; font-weight: bold;}
+        .success { font-size: 2em; color: blue ;}
+    </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <h1>Exchage Rate Conversion</h1>
+        <input type="text" name="amount" placeholder="Amount" size="5"
+         value="<%= form.amount ?? "" %>"
+        >
+        <select name="currency">
+            <% for (const rate of Object.entries(xrates)) { %>
+                <option value="<%= rate[0] %>"
+                  <%= form.currency == rate[0] ? " selected" : "" %>
+                ><%= rate[1]["name"] %></option>
+            <% } %>
+        </select>
+        <button>Convert</button>
+    </form>
+    <% if (value !== null) { %>
+        <p class="success"><%= value %> TL</p>
+    <% } %>
+    
+    <% if (errorMsg) { %>
+        <p class="error"><%= errorMsg %></p>
+    <% } %>
+</body>
+</html>

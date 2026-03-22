@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input : Web Form</title>
+    <style>
+        input { width: 100px; }
+        div { text-align: center;}
+        span { font-weight: bold; color: blue}
+        em { color: green; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Arithmetic Operations</h2>
+        <form action="/" method="post">
+            <input type="text" name="n1" >
+             <select name="op" >
+                <option value="add">+</option>
+                <option value="sub">-</option>  
+                <option value="mul">*</option>
+                <option value="div">/</option>
+             </select>
+            <input type="text" name="n2" >  
+            <br><br>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <% if ( typeof result !== "undefined" ) { %>
+        <div>
+            <h3>Result: </h3>
+            <p>
+                <%= data.n1 %>
+                <span><%= data.op %></span>
+                <%= data.n2 %>
+                 =
+                <em><%= result %></em>
+            </p>
+        </div>
+    <% } %>
+
+</body>
+</html>

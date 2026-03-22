@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sticky Form + Validator</title>
+  <style>
+  fieldset { padding: 20px; width: max-content; display: inline-block; }
+  .success { color: green; }
+  div { margin-top: 25px; }
+  .submitted { color: blue; }
+  .error { color: red; margin-left: 10px; font-style: italic; }
+  </style>
+</head>
+<body>
+    <%= method %>
+    <h2>Sticky Form</h2>
+    <form method="POST" action="/">
+      <!-- TEXTBOX -->
+      <div>
+        <label>Name:
+          <input type="text" name="name"
+              value="<%= form?.name ?? '' %>">
+        </label>
+        <span class="error">
+          <%= errorList?.name?.msg ?? '' %>
+        </span>
+      </div>
+
+      <!-- SELECT -->
+      <div>
+        <label>Department:</label>
+        <select name="department">
+          <option value="">Select</option>
+
+          <option value="ctis"
+            <%= form?.department === "ctis" ? "selected" : "" %>
+          >
+            Information Systems and Technologies
+          </option>
+
+          <option value="gra"
+            <%= form?.department === "gra" ? "selected" : "" %>
+          >
+            Graphic Design
+          </option>
+        </select>
+        <span class="error">
+          <%= errorList?.department?.msg ?? '' %>
+        </span>
+      </div>
+
+      <!-- RADIO -->
+      
+      <div>
+        <fieldset>
+          <legend>Gender:</legend>
+  
+          <label>
+            <input type="radio" name="gender" value="male"
+              <%= form?.gender === "male" ? "checked" : "" %>
+            >
+            Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female"
+              <%= form?.gender === "female" ? "checked" : "" %>
+            >
+            Female
+          </label>
+        </fieldset>
+        <span class="error">
+            <%= errorList?.gender?.msg ?? '' %>
+          </span>
+        </div>
+      <!-- CHECKBOX -->
+      <div>
+        <label>
+          <input type="checkbox" name="agree" value="yes"
+            <%= form?.agree ? "checked" : "" %> >
+          I agree to the terms and conditions
+        </label>
+        <span class="error">
+          <%= errorList?.agree?.msg ?? '' %>
+        </span>
+      </div>
+      <!-- SUBMIT BUTTON -->
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+     <% if ( method === "POST" ) { %>
+      <div>
+        Submitted form data:
+        <span class="submitted"><%= JSON.stringify(form) %></span>
+      </div>
+    <% } %>
+
+    <% if ( method === "POST" && errorList === null ) { %>
+      <div class="success">
+        &#128079; No errors! Form submitted successfully.
+      </div>
+    <% } %>
+
+</body>
+</html>

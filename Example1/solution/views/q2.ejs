@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table { margin: auto;}
+        td { padding: 0.5em; }
+        p { text-align: center;}
+        .error { text-align: center; color: red; font-style: italic;}
+        span { color: blue}
+    </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <td>Product:</td>
+                <td>
+                    <select name="model" id="">
+                        <option value="0" <%= form.model == "0" ? "selected" : "" %> >S25 Ultra</option>
+                        <option value="1" <%= form.model == "1" ? "selected" : "" %> >S25 Edge</option>
+                        <option value="2" <%= form.model == "2" ? "selected" : "" %> >S25+</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Units:</td>
+                <td>
+                    <input type="text" name="units"  value="<%= form.units ?? '' %>">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Storage:
+                </td>
+                <td>
+                    <input type="radio" name="storage" value="0"
+                    <%= form.storage == "0" ? " checked" : "" %>
+                    >256GB
+                    <input type="radio" name="storage" value="1"
+                    <%= form.storage == "1" ? " checked" : "" %>
+                    >512GB
+                    <input type="radio" name="storage" value="2"
+                    <%= form.storage == "2" ? " checked" : "" %>
+                    >1TB
+                </td>
+            </tr>
+            <tr>
+                <td>Shipping:</td>
+                <td>
+                    <input type="checkbox" name="shipping" <%= form.shipping ? " checked" : "" %>>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Buy</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <% if (price) { %>
+        <p><span><%= model %></span> x <%= form.units %> purchased, Total price is <b><%= price %></b></p>    
+    <% } %>
+
+    <% if (Object.keys(errors).length > 0) { %>
+        <div class="error">
+            <h3>Errors</h3>
+            <%- Object.values(errors).map(e => `<p>${e.msg}</p>`).join("") %>
+        </div>
+    <% } %>
+</body>
+</html>

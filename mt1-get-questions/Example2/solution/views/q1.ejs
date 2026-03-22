@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .grayout {
+            color: gray;
+            text-decoration: line-through;
+        }
+        section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        section > div {
+            width: 200px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        .left, .right {
+            width: 100px;
+            border: none ;
+        }   
+        .price { font-size: 30px;;}
+        .disabled {
+            opacity: 0.2;
+            pointer-events: none;
+        }   
+        .selected {
+            background-color: #FDD;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="left">
+            <% if (prevFlag) { %>
+                <a href="/?pos=<%= pos - 1 %><%- id ? `&id=${id}` : '' %>">
+                    <img src="/images/left.png" >
+                </a>
+            <% } else { %> 
+                <img src="/images/left.png" class="disabled">
+            <% } %>
+        </div>
+        <%-
+           products.map(product => {
+               return `
+                   <div class="${id == product.id ? 'selected' : ''}">
+                       <img src="/images/${product.image}" >
+                       <h2><a href="/?id=${product.id}&pos=${pos}">${product.name}</a></h2>
+                       <p class="price"> 
+                         ${
+                           product.discount > 0 ? 
+                           `<span class="grayout">${product.price}</span><br>
+                            <span class="red">${product.price * (1 - product.discount)}₺</span>`
+                            : `<span class="red">${product.price}₺</span>`
+                         } 
+                       </p>
+                   </div>
+               `
+           }).join('')  
+        %>
+        <div class="right">
+            <% if (nextFlag) { %>
+                <a href="/?pos=<%= pos + 1 %><%- id ? `&id=${id}` : '' %>">
+                    <img src="/images/right.png" >
+                </a>
+            <% } else { %> 
+                <img src="/images/right.png" class="disabled">
+            <% } %>
+        </div>
+
+    </section>
+</body>
+</html>

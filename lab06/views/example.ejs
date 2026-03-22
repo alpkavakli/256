@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    div { background-color: #f0f0f0; padding: 10px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <h1><%= title %></h1>
+
+  <p>Escaped output:</p>
+  <div><%= rawHtml %></div>
+
+  <p>Unescaped output:</p>
+  <div><%- rawHtml %></div>
+
+  <hr>
+
+  <h2>Generated List (for loop)</h2>
+  <ul>
+    <% for (let std of students) { %>
+      <li><%= std %></li>
+    <% } %>
+  </ul>
+
+  <hr>
+
+  <h2>Generated List (map)</h2>
+  <ul>
+    <%- students.map(s => `<li>${s}</li>`).join("") %>
+  </ul>
+
+</body>
+</html>

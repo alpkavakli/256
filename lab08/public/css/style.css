@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body { font-family: arial; margin: 20px;}
+h1, h2,h3 {
+    margin: 5px;
+}
+
+h1 {
+    text-align: center  ;
+    margin-top: 20px;
+}
+
+h3 { font-size: 0.9em;}
+
+section img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+section {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-around;
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+    
+}
+
+.card {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    gap: 5px;
+    flex: 1;
+}
+
+.card p {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.5;
+    padding: 5px;
+}   
