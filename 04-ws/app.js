@@ -2,7 +2,7 @@ import http from "http"
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
-const __filename = fileURLToPath(import.meta.url)
+const __filename = fileURLToPath(import.meta.url) //wtf does this do
 const __dirname = path.dirname(__filename)
 const port = 3000
 /* console.log(__filename)
@@ -15,7 +15,7 @@ const webserver = (req, res ) => {
     }
     //logical path to physical path
     // /img/logo.png --> D:\labs\s3\04-ws\public.img\logo.png
-    const file = path.join(__dirname, "public", req.url)
+    const file = path.join(__dirname, "public/public", req.url)
     const ext = path.extname(file) // ".png"
     const mimetypes = {
         ".html":"text/html", ".jpg" : "image/png",

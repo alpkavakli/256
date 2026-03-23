@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
   const url = req.url;
   const host = req.headers.host;
   const userAgent = req.headers["user-agent"];
-
+  console.log(method, url, host, userAgent)
   // Parse the User-Agent header to get more detailed info about the client
   const info = new UAParser(userAgent).getResult();
 

@@ -17,18 +17,17 @@
         <h2>Arithmetic Operations</h2>
         <form action="/" method="post">
             <input type="text" name="n1" id="" value="<%= data?.n1 ?? '' %>"
-             class="<%= errors.n1 ? 'error' : '' %>"  
-            >
+             class="<%= errors.n1 ? 'error' : '' %>"  >
+             <!-- text input for -->
             <select name="op" id="">
-                <option value="add" <%= data?.op === "add" ? "selected" : "" %>>+</option>
+                <option value="add" <%= data?.op === "add" ? "selected" : "" %>>+</option> <!-- selected is an attribute like value -->
                 <option value="sub" <%= data?.op === "sub" ? "selected" : "" %>>-</option>  
                 <option value="mul" <%= data?.op === "mul" ? "selected" : "" %>>*</option>
                 <option value="div" <%= data?.op === "div" ? "selected" : "" %>>/</option>
              </select>
-            </select>
             <input type="text" name="n2" id="" value="<%= data?.n2 ?? '' %>"
-             class="<%= errors.n2 ? 'error' : '' %>"
-            >  
+             class="<%= errors.n2 ? 'error' : '' %>" 
+            >  <!-- give class of red color if there's an error -->
             <br><br>
             <button type="submit">Calculate</button>
         </form>
@@ -45,16 +44,16 @@
             </p>
         </div>
     <% } %>
-
+        <!-- If there are errors: -->
     <% if ( Object.keys(errors).length > 0 ) { %>
         <div>
             <h3 style="color: red;">Errors:</h3>
             <ul>
                 <% Object.values(errors).forEach(error => { %>
                     <li><%= error.msg %></li>
-                <% }) %>
-            </ul>
+                <% }) %> <!-- As object.values returns array, we can do foreach -->
+            </ul> 
         </div>      
     <% } %>
 </body>
-</html>
+</html> 
