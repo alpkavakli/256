@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            color: green;
+            font-weight: bold;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+        span.black {
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        VISITED COUNTRIES AND CITIES
+    </h1>
+    <div class="Countries">
+       
+        <span class="black" > Filter(<%=
+            filterBy;
+            %>)</span>
+        
+         <% if (filterBy !== "ALL"){ %>
+            <span>
+                <a href="/?filterBy=ALL">ALL</a>
+            </span>
+            <% } %>
+        <% 
+        countries.forEach(c=> {
+            if (c.name !== filterBy){
+            %>
+            <span>
+                 <a href="/?filterBy=<%=c.name %>"><%=c.name %> </a>
+                
+            </span>
+            <%} }); %>
+           
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>COUNTRY</th>    
+                    <th>CITY</th>    
+                    <th>POPULATION</th>    
+                </tr>
+            </thead> 
+            <tbody>
+                <tr>
+                    <% result.forEach(r=> {
+                        %> 
+                    <td><%= countries.find(c => c.code === r.code )?.name  %></td>
+                    <td><%= r.name %></td>
+                    <td><%= r.population%></td>
+                         </tr>
+                <%  });   %>
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+
+</html>

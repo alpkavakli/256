@@ -20,9 +20,11 @@
           <input type="text" name="name"
               value="<%= form?.name ?? '' %>">
         </label>
-        <span class="error">
+        <% if (errorList?.name?.msg) { %> 
+        <span class="error"> <!-- I added the above cuz why not, if falsy doesnt work same as ?? -->
           <%= errorList?.name?.msg ?? '' %>
         </span>
+        <% } %>
       </div>
 
       <!-- SELECT -->

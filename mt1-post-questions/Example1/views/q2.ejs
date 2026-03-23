@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            padding: 20px;
+            width: max-content;
+            display: inline-block
+        }
+
+        .success {
+            color: green
+        }
+
+        div {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .submitted {
+            color: blue
+        }
+
+        .error {
+            color: red;
+            margin-left: 10px;
+            font-style: italic;
+        }
+
+        .fieldsetDiv {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="/" method="POST">
+            <div>
+                <label>Product: </label>
+                <select name="product">
+                    <option value="S25Ultra">S25 Ultra</option>
+                    <option value="S25Edge">S25 Edge</option>
+                    <option value="S25Plus">S25+</option>
+                </select>
+            </div>
+            <div>
+                <label> Units:
+                    <input type="text" name="units" value="<%= form?.unit ?? ` ` %>">
+                </label>
+                <% if (errorList?.name?.msg ) { %>
+                    <span class="error">
+                        <%= errorList?.name?.msg ?? `` %>
+                    </span>
+                    <% } %>
+            </div>
+            <div>
+                <div class="fieldsetDiv">
+                    <Legend>
+                        Storage:
+                    </Legend>
+
+                    <label>
+                        <input type="radio" name="gb" value="256gb" <%=form?.gb==="256gb" ? "checked" : "" %> >
+                        256GB
+                    </label>
+                    <label>
+                        <input type="radio" name="gb" value="512gb" <%=form?.gb==="512gb" ? "checked" : "" %> >
+                        512GB
+                    </label>
+                    <label>
+                        <input type="radio" name="gb" value="1tb" <%=form?.gb==="1tb" ? "checked" : "" %> >
+                        1GB
+                    </label>
+                </div>
+
+            </div>
+            <div>
+                <label>
+                    Shipping:
+                    <input type="checkbox" name="shipping" value="yes">
+                    <%= form?.agree ? "checked" : "" %>
+                </label>
+            </div>
+
+            <div>   
+                <button type="submit">Buy</button>
+            </div>
+        </form>
+
+        <% if ( method === "POST" && errorList) { %>
+            <div>
+                Submitted form data:
+                <span class="submitted"> 
+                    <%= JSON.stringify(form) %>
+                </span>
+            </div>
+    </div>
+</body>
+
+</html>
