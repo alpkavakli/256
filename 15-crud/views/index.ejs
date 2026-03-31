@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>List of Students</h1> 
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Lastname</td>
+            <td>CGPA</td>
+            <td>Birthday</td>
+            <td colspan="2"> </td>
+        </tr>
+        <% for (let std of students ) { %>
+            <tr>
+                <td> <%= std.id %> </td>
+                <td> <%= std.name %> </td>
+                <td> <%= std.lastname %> </td>
+                <td> <%= std.cgpa %> </td>
+                <td> <%= std.bday %> </td>
+                <td>
+                    <a href="/delete/<%= std.id %>">
+                        <img src="/img/delete.png" alt="">
+                    </a>
+                </td>
+                <td>
+                    <a href="/update/<%= std.id %>">
+                        <img src="/img/update.png" alt="">
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <form action="/create" method="post">
+        <p>
+            <button>
+                <img src="/img/plus.png" alt="">
+            </button>
+         </p>
+    </form>
+</body>
+</html>
