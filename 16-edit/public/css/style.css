@@ -1,0 +1,7 @@
+table { border-collapse: collapse; margin: 0 auto; }
+td { padding: 10px ; border-bottom: 1px solid #CCC;}
+#stdList tr:first-of-type { background: #FDD}
+a { text-decoration: none; font-size: 1.2em;}
+img { width: 30px; }
+p, h1 { text-align: center; }
+.xl { width: 50px; }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        #message {
+            background: black; color: whitesmoke;
+            border-radius: 4px; padding: 8px 12px;
+            position: absolute; top: 0; left: 20px; 
+        }
+        @keyframes fadeOut {
+            20% {opacity: 1; top: 0}
+            80% { opacity: 1; top: 0}
+        }
+    </style>
+</head>
+<body>
+    <% if (createId ) { %>
+        <p id="Message"> A student (<%= createId %>) added.</p>
+    <% } %>
+    <h1>List of Students</h1> 
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Lastname</td>
+            <td>CGPA</td>
+            <td>Birthday</td>
+            <td colspan="2"> </td>
+        </tr>
+        <% for (let std of students ) { %>
+            <tr>
+                <td> <%= std.id %> </td>
+                <td> <%= std.name %> </td>
+                <td> <%= std.lastname %> </td>
+                <td> <%= std.cgpa %> </td>
+                <td> <%= std.bday %> </td>
+                <td>
+                    <a href="/delete/<%= std.id %>">
+                        <img src="/img/delete.png" alt="delete">
+                    </a>
+                </td>
+                <td>
+                    <a href="/update/<%= std.id %>">
+                        <img src="/img/update.png" alt="update">
+                    </a>
+                </td>
+                <td>
+                    <a href="/edit/<%= std.id %>">
+                        <img src="/img/pen.png" alt="edit">
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <form action="/create" method="post">
+        <p>
+            <button>
+                <img src="/img/plus.png" alt="">
+            </button>
+         </p>
+    </form>
+</body>
+</html>
