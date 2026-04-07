@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/17-upload/public/css/style.css">
+</head>
+<body>
+    <h1>Photo Album Application</h1>
+    <form action="/" method="post" emctype="multipart/form-data">
+        <p>Tags: <input type="text" name="tags" autofocus> </p>
+        <p>Photo: <input type="file" name="photo"></p>
+        <p><button>Upload</button></p>
+    </form>
+
+    <% photos.forEach( p => { %> 
+        <div>
+            <div class="original"> <%= p["original"] %></div>
+            <div class="date">
+                <%=
+                p["created_at"].toLocaleDateString("tr-TR",)
+                { day: "2-digit", month: "long", year: "numeric"
+                , hour: "2-digit", minute: "2-digit"
+                }
+            %>
+            </div>
+            <img src="/17-upload/uploads/<%= p['filename'] %>" alt="">
+        </div>
+        <div class="tags">
+            <%- p["tags"].split(" ").map( t=> `<span>${t}</span>`).join("") %>
+        </div>
+    <% }) %>
+</body>
+</html>

@@ -1,0 +1,8 @@
+  .error { color: red ; font-style: italic;}
+.container img { width: 300px; height: 200px; object-fit: cover; }
+.container { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start;}
+.container > div { border:1px solid #CCC; padding: 10px; border-radius: 10px; box-shadow: 0 2px 15px  rgba(0,0,0, 0.2); max-width: 300px;}
+.original { text-align: center; font-weight: bold; margin-bottom: 15px; }
+.tags { display: flex; flex-wrap: wrap; margin-top: 10px;}
+.tags span { padding: 2px 8px; background: #DDD; border-radius: 10px; margin:5px;}
+.date { margin-top: 10px; font-size: 0.9em; font-style: italic;margin-bottom: 10px; text-align: right;}
