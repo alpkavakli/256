@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+</head>
+<body>
+  <h1>Product List</h1>
+
+  <ul>
+    <% products.forEach(product => { %>
+      <li>
+        <a href="/product/<%= product.id %>">
+          <%= product.name %>
+        </a>
+        - <%= product.price %> TL
+      </li>
+    <% }) %>
+  </ul>
+
+  <hr>
+
+  <h2>Recently Viewed Products</h2>
+
+  <% if (recentlyViewed.length === 0) { %>
+    <p>No recently viewed products yet.</p>
+  <% } else { %>
+    <ul>
+      <% recentlyViewed.forEach(product => { %>
+        <li>
+          <%= product.name %> - <%= product.price %> TL
+        </li>
+      <% }) %>
+    </ul>
+    
+  <% } %>
+  <p>Count : <%= count %></p>
+  <form action="/recently-viewed/clear" method="post" style="display:inline;">
+    <button type="submit">Clear Recently Viewed</button>
+  </form>
+
+</body>
+</html>
