@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/task", (req, res)=> {
-    Task(10000000)
+    Task(100000)
     res.send(`<p>Task is completed in 10 seconds </p>`)
 })
 
@@ -27,4 +27,4 @@ function Task(ms){
 
 
 
-app.listen(3000)
+app.listen(3001)
