@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>My Photo-Album App</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <p>Tags : <input type="text" name="tags" autofocus></p>
+        <p>Photo : <input type="file" name="photo"></p>
+        <p><button>Upload</button></p>
+    </form>
+
+    <%- error ? `<p class='error'>${error}</p>` : "" %>
+
+    <div class="container">
+        <% photos.forEach( p => {  %>
+            <div>
+                <div class="original"><%= p["original"] %></div> 
+                
+                <div class="date">
+                  <%=   p["created_at"].toLocaleDateString("en-US", {
+                         day: "2-digit", month: "long", year: "numeric",
+                         hour: "2-digit", minute: "2-digit"
+                       });
+                   %>
+                </div>
+                <img src="/uploads/<%= p["filename"] %>">
+                <div class="tags">
+                  <%- 
+                     p["tags"].split(" ")
+                              .map(t => `<span>${t}</span>`)
+                              .join(" ")
+                  %>
+                </div> 
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
+

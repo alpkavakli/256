@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        fieldset { width: max-content; margin: 30px auto; padding: 20px}
+        td { border: none}
+    </style>
+</head>
+<body>
+    <form action="/edit/<%= std.id %>" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" value="<%= std.name %>" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lastname</td>
+                    <td>
+                        <input type="text" value="<%= std.lastname %>" name="lastname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CGPA</td>
+                    <td>
+                        <input type="text" value="<%= std.cgpa %>" name="cgpa">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>
+                        <input type="date" value="<%= std.bday %>" name="bday">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button>Edit</button></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <p><a href="/">Back to Main</a></p>
+</body></html>

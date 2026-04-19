@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        @keyframes fadeOut{
+            20% { opacity: 1; top: 0;}
+            80% { opacity: 1; top: 0;}
+        }
+        #message {
+            animation: fadeOut ease 2s; 
+            position: absolute;
+            top: -55px; left: 20px;
+            background: black; color: white;
+            border-radius: 4px; padding: 8px 12px ;
+            opacity: 0 ;
+
+        }
+    </style>
+ </head>
+ <body>
+     <h1>List of Students</h1>
+     <table id="stdList">
+        <tr>
+            <td>Id</td><td>Name</td><td>Lastname</td><td>CGPA</td><td>Birthday</td>
+            <td colspan=3></td>
+        </tr>
+        <% for ( let std of students ) { %>
+            <tr>
+                <td><%= std.id %></td>
+                <td><%= std.name %></td>
+                <td><%= std.lastname %></td>
+                <td><%= std.cgpa %></td>
+                <td><%= std.bday.toLocaleDateString("tr-TR") %></td>
+                <td>
+                    <a href="/delete/<%= std.id %>" title="delete">
+                        <img src="/img/delete.png" alt="delete">
+                    </a>
+                </td>
+                <td>
+                    <a href="/update/<%= std.id %>" title="random cgpa">
+                        <img src="/img/update.png" alt="update">
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/edit/<%= std.id %>" >
+                        <img src="/img/pen.png" >
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+     </table>
+     <p>
+        <form action="/create" method="post">
+            <p>
+                <button>
+                     <img src="/img/plus.png" alt=""  class="xl">
+                </button>
+            </p>
+        </form>
+        
+     </p>
+     <% if (createdId) { %>
+        <p id="message">Student ( <%= createdId %> ) added.</p>
+     <% } %>
+ </body>
+ </html> 
+ 
