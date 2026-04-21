@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .listBox{
+            background-color: greenyellow;
+            border: 2px solid black;
+            gap: 5px;
+            display: flex;
+            flex-direction: row;
+            padding: 7px 5px;
+        }
+        td{
+            text-align: center;
+        }
+        table{
+            background-color: rgb(156, 109, 201);
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    ADD-DROP FORM
+    <form action="/" method="POST">
+        <div class="halfBody">
+            <div class="listBox">
+                <select name="classes">
+                    <% classes.forEach(e =>  { %>
+                    <option value="<%= e.id %>">
+                        <%= e.code %>
+                    </option>
+                <% }) %>
+                </select>
+                <button>Add</button>
+            </div>
+        </div>
+
+
+    </form>
+
+    <table>
+        <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Credit</th>
+            <th>Lab Work</th>
+            <th>Drop</th>
+        </tr>
+        <% coursesTaken.forEach(e => {  %>
+        <tr>
+            <td><%= e.code %></td>
+            <td><%= e.name%></td>
+            <td><%= e.credit %></td>
+            <td><%
+            if(e.lab){ %>
+                <img src="asset/up.png" alt="">
+           <% } %></td>
+            <td><a href="/delete/<%=   e.id %> ">
+                <img src="/asset/del.png" alt="">
+            </a> 
+              </td>
+        </tr>
+        <% })%>
+    </table>
+</body>
+</html>

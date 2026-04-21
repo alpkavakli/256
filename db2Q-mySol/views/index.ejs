@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="/assets/mystyle.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id='bar'></div>
+        <table>
+            <tr>
+                <td><a href='/?page=<% if (page !== 1){let indPage = page-1; %><%=indPage  %>
+                     <% } else{ %>
+                     <%= 1  %>
+                     <% } %>
+                    '><img src='assets/icon/prev.png'></a></td
+                    > 
+                <% items.forEach(i => { let ind = 1; %> 
+                <td class='product'>
+                    <img src='assets/img/<%= i.image%>'><br><br>
+                    <span class='title'><%=i.title %></span><br>
+                    <% for (ind; ind <=  i.rate; ind++) { %>
+                    <img src='assets/icon/full.jpg'>
+                   <% } %>
+                   <% for (ind = 1; ind  <=  5 - i.rate; ind++) { %>
+                    <img src='assets/icon/empty.jpg'>
+                     <% } %>
+                    <div class='price'><%= i.price %></div>
+                    <div><a class='btn' href=''>Add</a></div>
+                </td>
+                <% } ) %>
+                
+               
+                 <td><a href='/?page=<% if (page !== 6){let indPage = page+1; %><%=indPage  %>
+                     <% } else{ %>
+                     <%= 6  %>
+                     <% } %>
+                    '><img src='assets/icon/next.png'></a></td
+                    > 
+            </tr>
+        </table>
+        <div class='pages'>
+            <%for(pageNum=1; pageNum<=6; pageNum++){ %>
+            <a class='pageNo <% if(pageNum == page)
+            {%>active
+            <% } %>' 
+            href='/?page=<%= pageNum%>'><%=pageNum %></a>
+             <%} %>
+        </div>
+    </body>
+</html>
