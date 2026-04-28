@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exchange Rate</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>Exchange Rate</h2>
+
+  <div class="counter-box">
+    <p class="counter-title">
+      Counter <span>(updates every second)</span>
+    </p>
+    <h1 id="counter-value">0</h1>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Currency</th>
+        <th>Buy (TL)</th>
+        <th>Sell (TL)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>USD - US Dollar</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>EUR - Euro</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>GBP - British Pound</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button id="refresh-btn">Refresh Exchange</button>
+  <img src="/loading.gif" id="loading" />
+  <script src="./app.js"></script>
+</div>
+</body>
+</html>
