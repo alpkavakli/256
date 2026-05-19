@@ -3,7 +3,7 @@
 
 import express from "express";
 import homeRouter from "./routers/homeRouter.js"
-import { pool } from "./db.js";  
+ 
 
 const app = express();
 const port = 3000;

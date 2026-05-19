@@ -29,29 +29,31 @@
             <th>Tags</th>
             <th>Like</th>
         </tr>
-        <% rows.forEach(r =>  %>
+       
         <tr>
-            <td><%= r.team %></td>
-            <td><%= r.name %></td>
-            <td><%= r.supervisor %></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td> <div class="tag">
-                <%= r. %>
+                
             </div></td>
             <td>
-                <% if (parseInt(r.likeit ) ) { %>
-                <a href="/likeit/<%= r.id %>">
+                
+                <a href="/likeit/">
                     <img src="../assets/img/empty.jpg" alt="">
                 </a>
-                <% } %>
+                
 
-                <% if !(parseInt(r.likeit ) ) { %>
-                <a href="/dislikeit/<%= r.team %>">
+               
+                <a href="/dislikeit/">
                     <img src="../assets/img/full.jpg" alt="">
                 </a>
-                <% } %>
+               
             </td>
         </tr>
-        <% ) %>
+        
     </table>
+
+    <img src="../assets/img/loader.gif" id="loading">
 </body>
 </html>
