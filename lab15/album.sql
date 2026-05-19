@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS `album` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
+
+
 --
 -- Tablo döküm verisi `album`
 --

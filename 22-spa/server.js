@@ -7,7 +7,7 @@ app.use(express.static("public"))
 
 app.use(express.json())
 //main shouldn't contain endpoints usually
-app.use("/api/todos", todoRouter)
+app.use("/login", todoRouter) // /login is the path yani localhost:3000/login'de çalışıyo ol
 //app.use("/api/users", userRouter)
 //app.use("/api/users", todoRouter)
 //app.use("/api/users", todoRouter)
