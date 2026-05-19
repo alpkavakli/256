@@ -41,7 +41,7 @@ app.post("/login", async (req, res) => {
             res.redirect("/");
         }
     } else {
-        req.session.message = "Invalid username or password";   
+        req.session.message = "User doesn't exist";   
         res.redirect("/");
     }
 });

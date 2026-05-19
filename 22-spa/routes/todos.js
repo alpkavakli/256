@@ -24,15 +24,19 @@ router.post("/", (req, res) => { //we can not test post with browser so we will 
     res.status(201).json(newTodo); //201 means resourse is successfully created then we send info to client
 })
 
+
 router.delete("/:id", (req, res) => {
     const id = parseInt(req.params.id) //curl -X DELETE http://localhost:3001/api/todos/2 to test
     todos = todos.filter(t => t.id !== id) //if the task id is not same with the given id then put it into todos array
-    res.status(204).json({message: id + "deleted"}) //204 means successfully deleted
+    res.status(204).json({message: id + "deleted"}) //204 means successfully deleted, json() yerine end() de yazabilirdik
 })
 
 router.patch("/:id", (req, res) => {
     const id = parseInt(req.params.id) //curl -X PATCH http://localhost:3001/api/todos/2 -v to test
     const todo = todos.find( t => t.id === id)
+
+    if (!todo) return res.status(404).json({ error: 'Not found' });
+
     todo.completed = !todo.completed;
     res.json(todo).status(200)
 })
