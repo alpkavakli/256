@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <style>
+        .srcInput{
+            display:flex;
+            justify-content: center;
+            margin-top: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="srcInput">
+    <form action="POST" id="search">
+        <input type="text" id="search-input" placeholder="search tag..">
+
+    </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Team</th>
+            <th>Project Name</th>
+            <th>Supervisor</th>
+            <th>Tags</th>
+            <th>Like</th>
+        </tr>
+        <tr>
+            <td>55</td>
+            <td>pet care</td>
+            <td>seyid amj</td>
+            <td> <div class="tag">
+                health
+            </div></td>
+            <td>
+                <a href="/delete/:id">
+                    <img src="../assets/img/empty.jpg" alt="">
+                </a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
