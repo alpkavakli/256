@@ -13,11 +13,12 @@
         }
 
         #loading {
-            width:32px;
-            display: none; /* set it inline-block */
-            position: absolute;
-            top: 5px;
-            left: calc(50% - 16px);
+            width: 60px;
+            display: none; /* app.js shows it during loading */
+            position: fixed; /* bottom-center, always visible */
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -28,6 +29,9 @@
 
     </form>
     </div>
+
+    <!-- search tag chips (filled by app.js) -->
+    <div id="tags" class="center"></div>
 
     <table id="thetable">
         <thead id="thead">

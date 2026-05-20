@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backpack</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+    <!-- req i/j: max value so far (clickable -> shows the winning items) -->
+    <div id="maxValue">Maximum Value so far: $0</div>
+
+    <div class="panels">
+        <!-- left: items to pick from -->
+        <div class="panel">
+            <h3>Items</h3>
+            <div id="items"></div>
+        </div>
+
+        <!-- right: the bag -->
+        <div class="panel">
+            <h3>Bag (20 kg)</h3>
+            <div id="bag"></div>
+            <div class="status">
+                Remaining: <span id="remaining" class="red">20</span> kg &nbsp;|&nbsp;
+                Value: $<span id="value" class="red">0</span>
+            </div>
+            <a href="#" id="reset">Reset</a>
+        </div>
+    </div>
+
+    <!-- req j: spinner while loading, then images of the max combination -->
+    <img id="spinner" src="/assets/images/spinner.gif" alt="loading">
+    <div id="maxItems"></div>
+
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>

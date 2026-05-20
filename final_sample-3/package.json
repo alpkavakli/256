@@ -1,0 +1,15 @@
+{
+  "name": "final-sample-3",
+  "version": "1.0.0",
+  "description": "Knapsack / backpack app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mysql2": "^3.22.3"
+  }
+}
