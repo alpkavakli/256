@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <style>
         .srcInput{
             display:flex;
             justify-content: center;
             margin-top: 1%;
+        }
+
+        #loading {
+            width:32px;
+            display: none; /* set it inline-block */
+            position: absolute;
+            top: 5px;
+            left: calc(50% - 16px);
         }
     </style>
 </head>
@@ -21,7 +29,8 @@
     </form>
     </div>
 
-    <table>
+    <table id="thetable">
+        <thead id="thead">
         <tr>
             <th>Team</th>
             <th>Project Name</th>
@@ -29,31 +38,14 @@
             <th>Tags</th>
             <th>Like</th>
         </tr>
-       
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td> <div class="tag">
-                
-            </div></td>
-            <td>
-                
-                <a href="/likeit/">
-                    <img src="../assets/img/empty.jpg" alt="">
-                </a>
-                
-
-               
-                <a href="/dislikeit/">
-                    <img src="../assets/img/full.jpg" alt="">
-                </a>
-               
-            </td>
-        </tr>
-        
+       </thead>
+       <tbody>
+      
+        </tbody>
     </table>
 
-    <img src="../assets/img/loader.gif" id="loading">
+    <img src="/assets/img/loader.gif" id="loading">
+
+    <script src="/assets/js/app.js"></script>
 </body>
 </html>
